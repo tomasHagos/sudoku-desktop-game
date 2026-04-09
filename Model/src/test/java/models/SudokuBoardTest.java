@@ -2,6 +2,9 @@ package models;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.checkerframework.checker.units.qual.s;
+import org.checkerframework.checker.units.qual.t;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -196,6 +199,27 @@ public class SudokuBoardTest {
     //         System.out.println();
     //     }
     // }
+
+    @Test
+    public void testFillBoardWithInitiallyCorrectBoardButThenSetInvalidData() {
+        SudokuBoard sudokuBoard = new SudokuBoard(new BacktrackingSudokuSolver());
+
+            int[][] initialBoard = provideInitiallyCorrectBoards()[0];
+
+            for (int y = 0; y < initialBoard.length; y++) {
+                for (int x = 0; x < initialBoard[y].length; x++) {
+                    sudokuBoard.setField(x, y, initialBoard[y][x]);
+                }
+            }
+
+            assertTrue(sudokuBoard.isValidSudoku());
+
+            //make the board invalid
+            sudokuBoard.setField(0, 0, 5);
+            sudokuBoard.setField(0, 1, 5); 
+
+            assertFalse(sudokuBoard.isValidSudoku());
+    }
 
     @Test
     void testToString() throws InvalidSudokuException {
