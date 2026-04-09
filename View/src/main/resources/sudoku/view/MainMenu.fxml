@@ -144,7 +144,7 @@
       <VBox alignment="CENTER" prefHeight="98.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="300.0"
-               text="%MENU_TITLE" textAlignment="CENTER">
+               text= "Tomas Hagos Game" textAlignment="CENTER">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
